@@ -49,7 +49,7 @@ defmodule Mogrify.Command do
 
   def verbose(%Image{path: path} = img) do
     {:ok, output} =
-      ~w(-verbose -write #{dev_null} #{String.replace(path, " ", "\\ ")})
+      ~w(-verbose -write #{dev_null()} #{String.replace(path, " ", "\\ ")})
       |> mogrify
 
     info =
